@@ -1,0 +1,90 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v1
+servers:
+- url: http://localhost:8082
+  description: Generated server url
+paths:
+  /employee:
+    post:
+      tags:
+      - employee
+      operationId: add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Employee'
+  /employee/{id}:
+    get:
+      tags:
+      - employee
+      summary: Get an employee by its id
+      operationId: load
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Employee not found
+        "200":
+          description: Found the employee
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        "400":
+          description: Invalid id supplied
+    delete:
+      tags:
+      - employee
+      operationId: deleteEmployee
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Employee not found
+        "409":
+          description: Employee cannot be deleted
+        "400":
+          description: Invalid id supplied
+        "204":
+          description: Deleted the employee
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        familyName:
+          type: string
+        status:
+          type: string
+          enum:
+          - HIRING
+          - HIRED
+          - FIRED
+          - RESIGNED

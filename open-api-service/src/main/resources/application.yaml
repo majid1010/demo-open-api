@@ -1,0 +1,5 @@
+server.port: 8084
+
+openapi:
+  openAPIDefinition:
+    base-path: /alaki
