@@ -1,7 +1,7 @@
 name: Test Automated Issue Comment
 on:
   issues:
-    type: [opened]
+    types: [opened]
     
 jobs:
   comment-with_action:
