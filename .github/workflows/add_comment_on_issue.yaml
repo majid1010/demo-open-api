@@ -1,0 +1,18 @@
+jobs:
+  comment-with_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "dump github context"
+        run: echo "{{ toJSON(github.event) }}" | jq
+        shell: bash
+      - name: Create Comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This is a sample multi-line connet
+            - Items are create via **Github** GUI :sparkles:
+            - Created by [create-or-update-comment][1]
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'
