@@ -1,0 +1,11 @@
+name: create a comment on an issue
+on:
+  issues:
+    types: [opened, reopened]
+jobs:
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "do something"
+        run: echo "Hiiiiiii"
+        shell: bash
