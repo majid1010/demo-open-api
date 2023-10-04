@@ -26,10 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Comment via API
-        run: gh api -X POST https://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-          -f body='
-          Comment from API call, not action!      
-          '
+        run: |
+          gh api -X POST \
+             https://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+             -f body='
+             Comment from API call, not action!      
+             '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.user.login }}
