@@ -2,7 +2,7 @@ name: Deploy as Microservice
 
 on:
   workflow_run:
-    workflows: ["Demo API Service App CI pipeline"]
+    workflows: ["Demo API Service App CI pipeline", "Demo API Code Gen CI pipeline"]
     types:
       - completed
   workflow_dispatch:

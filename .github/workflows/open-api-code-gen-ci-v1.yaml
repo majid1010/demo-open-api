@@ -1,4 +1,4 @@
-name: Demo API Service App CI pipeline
+name: Demo API Code Gen CI pipeline
 
 on:
   push:
