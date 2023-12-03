@@ -1,0 +1,32 @@
+name: Demo API Service App CI pipeline
+
+on:
+  push:
+    paths:
+      - open-api-code-gen/**
+  pull_request:
+    paths:
+      - open-api-code-gen/**
+    branches: 
+      - develop
+  workflow_dispatch:
+  
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Unit Tests
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          architecture: x64
+      - name: Verify API Code Gen. path
+        run: ls -l open-api-code-gen
+        shell: bash
+      - name: Run the Maven Test phase
+        run: cd open-api-code-gen && mvn clean --batch-mode --update-snapshots package
+        shell: bash
+
+      
