@@ -1,0 +1,29 @@
+name: Demo API Service App CI pipeline
+
+on:
+  push:
+    paths:
+      - open-api-service/**
+  pull_request:
+    paths:
+      - open-api-service/**
+    branches: 
+      - develop
+  workflow_dispatch:
+  
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Unit Tests
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          architecture: x64
+      - name: Run the Maven Test phase
+        run: mvn clean --batch-mode --update-snapshots package
+        shell: bash
+
+      

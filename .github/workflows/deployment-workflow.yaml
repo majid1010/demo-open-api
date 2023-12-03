@@ -1,0 +1,28 @@
+name: Deploy as Microservice
+
+on:
+  workflow_run:
+    workflows: ["Demo API Service App CI pipeline"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  build_repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: verify configs
+        run: echo "code is checked out"
+        shell: bash
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Path verification
+        run: pwd & ls -la
+        shell: bash
+      - name: Running a shell command to deploy
+        run: echo "deploying app!"
+        shell: bash
+
+
