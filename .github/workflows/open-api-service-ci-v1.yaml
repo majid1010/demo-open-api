@@ -23,7 +23,7 @@ jobs:
           distribution: 'temurin'
           architecture: x64
       - name: Run the Maven Test phase
-        run: mvn clean --batch-mode --update-snapshots package
+        run: cd open-api-service && mvn clean --batch-mode --update-snapshots package
         shell: bash
 
       
