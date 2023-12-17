@@ -1,11 +1,13 @@
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
-  name: example-runner
+  name: example-deployment-runner
   namespace: actions
 spec:
   replicas: 1
   template:
     spec:
       repository: majid1010/demo-open-api
+      labels:
+        - my-self-hosted-deployment
       env: []
