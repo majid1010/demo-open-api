@@ -49,17 +49,5 @@ kubectl logs -f example-single-runner -n actions runner
 When the state is fine you can also verify this runner in Github majid1010/demo-open-api/settings/actions/runners
 Now you can use it in a workflow (see .github/workflows/hosted-runner-single-runner-workflow.yaml)
 
-
-
-
-
-
-
-
-```shell
-NAMESPACE="arc-systems"
-helm install arc \
---namespace "${NAMESPACE}" \
---create-namespace \
-oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
-```
+## Open topics:
+Verify sharing values/resources
