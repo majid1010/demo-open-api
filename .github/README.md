@@ -50,4 +50,4 @@ When the state is fine you can also verify this runner in Github majid1010/demo-
 Now you can use it in a workflow (see .github/workflows/hosted-runner-single-runner-workflow.yaml)
 
 ## Open topics:
-Verify sharing values/resources
+Verify shared values/resources
