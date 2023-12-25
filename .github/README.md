@@ -42,7 +42,7 @@ helm install action-runner actions-runner-controller/actions-runner-controller \
 --version 0.23.7 --set syncPeriod=1m `
 ```
 
-Need to wait couple of minutes and then verify the state using logs:
+Need to wait couple of minutes and then verify the state through pod's logs:
 ```shell
 kubectl logs -f example-single-runner -n actions runner
 ```
